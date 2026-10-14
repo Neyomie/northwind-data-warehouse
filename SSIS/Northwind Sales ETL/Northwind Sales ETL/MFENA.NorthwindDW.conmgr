@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MFENA.NorthwindDW"
+  DTS:DTSID="{2A80CBF0-2F73-45F8-B678-CD7DEE918CDD}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=Naomi\SQLEXPRESS;Initial Catalog=NorthwindDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Northwind Sales ETL-{2A80CBF0-2F73-45F8-B678-CD7DEE918CDD}MFENA.NorthwindDW;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

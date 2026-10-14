@@ -1,0 +1,50 @@
+name,description,query,id,parentId,isFolder
+Q1,,"MATCH (s:Sales)-[:PURCHASED_BY]->(c:Customer)
+RETURN c.CustomerID, c.ContactName, SUM(s.SalesAmount) AS TotalSales
+ORDER BY TotalSales DESC LIMIT 10;",0,,false
+Q2,,"MATCH (s:Sales)-[:INCLUDES]->(p:Product)
+RETURN 
+    p.ProductName,
+    SUM(s.SalesAmount) AS TotalSales
+ORDER BY TotalSales DESC
+LIMIT 10;",1,,false
+Q3,,"MATCH (s:Sales)-[:HANDLED_BY]->(e:Employee)
+RETURN 
+    e.FirstName + ' ' + e.LastName AS EmployeeName,
+    SUM(s.SalesAmount) AS TotalSales
+ORDER BY TotalSales DESC;",2,,false
+Q4,,"MATCH (s:Sales)-[:OCCURRED_ON]->(t:Time)
+RETURN 
+t.Year,
+SUM(s.SalesAmount) AS TotalSales
+ORDER BY t.Year;",3,,false
+Q%,,"MATCH (c1:Customer)-[:PURCHASED]->(s1:Sales)-[:INCLUDES]->(p:Product)
+MATCH (c2:Customer)-[:PURCHASED]->(s2:Sales)-[:INCLUDES]->(p)
+WHERE c1 < c2
+RETURN 
+    c1.CustomerID,
+    c2.CustomerID,
+    p.ProductName,
+    COUNT(*) AS TimesBoughtSameProduct
+ORDER BY TimesBoughtSameProduct DESC;",4,,false
+Q5,,"MATCH (c1:Customer)-[:PURCHASED]->(s1:Sales)-[:INCLUDES]->(p:Product)
+MATCH (c2:Customer)-[:PURCHASED]->(s2:Sales)-[:INCLUDES]->(p)
+WHERE c1 < c2
+RETURN 
+    c1.CustomerID,
+    c2.CustomerID,
+    p.ProductName,
+    COUNT(*) AS TimesBoughtSameProduct
+ORDER BY TimesBoughtSameProduct DESC;",5,,false
+Q6,,"MATCH (s:Sales)-[:INCLUDES]->(p1:Product)
+MATCH (s)-[:INCLUDES]->(p2:Product)
+WHERE p1.ProductID < p2.ProductID
+RETURN 
+    p1.ProductName,
+    p2.ProductName,
+    COUNT(*) AS TimesBoughtTogether
+ORDER BY TimesBoughtTogether DESC;",6,,false
+Q7,,"MATCH path = 
+(c:Customer)-[:PURCHASED]->(s:Sales)-[:INCLUDES]->(p:Product)
+RETURN path
+LIMIT 20;",7,,false
