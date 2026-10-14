@@ -1,6 +1,7 @@
 # Data Storage Solutions for Data Analytics
 As part of our group project developing a dimensional data warehouse for sales analysis with the Northwind dataset, my primary contributions focused on the ETL processes using SSIS and the creation of visualizations and reports in Tableau and SSRS. These elements were critical in transforming raw data into actionable business insights. This repo holds files and folders I used. The project structure is shown below.
 
+```bash
 │   Data Storage for Data Analytics Report.docx
 │   Data_Storage_Presentation.pptx
 │   Individual Contribution Report.docx
@@ -108,3 +109,4 @@ As part of our group project developing a dimensional data warehouse for sales a
 └───SSRS
         Report.pdf
         SalesReport.rdl
+```
